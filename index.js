@@ -125,10 +125,15 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 // getFinalscb 
-function getAverageGoals(/* code here */) {
+function getAverageGoals(data) {
    /* code here */
-
+    
    // use .reduce - add up all the home team and away team goals and then divide by length of data set
+    const allTeamGoals = data.reduce(function(previous, current){
+        return previous + current['Home Team Goals'] + current['Away Team Goals'];
+    },0);
+    return (allTeamGoals / data.length).toFixed(2);
+
    //2 steps
    // hint if you want the 2nd decimal look up .toFixed(2);
 }
